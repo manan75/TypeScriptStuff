@@ -24,16 +24,50 @@ console.log(createCourse());
 
 //A better way to use objects is through type aliases
 
+// type User = {
+//     name: string,
+//     email : string,
+//     age: number,
+//     isActive: boolean
+// }
+
+
+// function makeUser(user: User): User {
+//     return {name: "manan", email:"ok@gmail.com", age: 23, isActive: true};
+// }
+
+// console.log(makeUser({name:" ", email:" ", age:0, isActive: false}));
+
+
+//readonly 
+
 type User = {
+    readonly _id : number,
     name: string,
-    email : string,
-    age: number,
-    isActive: boolean
+    email : string
+    cardDetail?: number
+}
+
+let myUser : User = {
+    _id :1,
+    name: "manan",
+    email: "ok@gmail.com"
+    //no issue if we dont use optional attribute
 }
 
 
-function makeUser(user: User): User {
-    return {name: "manan", email:"ok@gmail.com", age: 23, isActive: true};
+// myUser._id = 33;
+
+type cardName = {
+    cardname : string
 }
 
-console.log(makeUser({name:" ", email:" ", age:0, isActive: false}));
+type cardDate = {
+    cardDate : string
+}
+// you can concat multiple types to create a new type so that u can use all properties of those types
+
+type cardDetails = cardName & cardDate & {
+    cvv : string
+}
+
