@@ -27,7 +27,7 @@ manan = {username: "mananAdmin", id: 1};
 // console.log(manan.username); // error because username is not common to both types
 
 function getDbId(id: number | string){
-    //id.toLowerCase(); // error because toLowerCase is not a method of number
+    //id.toLowerCase(); // error because toLowerCase is not a method of number so you need to use type narrowing to check the type of id before using the method
     if(typeof id === "string"){
         console.log(id.toLowerCase());
     }
@@ -35,3 +35,11 @@ function getDbId(id: number | string){
         console.log(id);
     }
 }
+
+const data1 : number[] | string[] = [1, 2, 3];  //this can be either all numbers or all strings but not a mix of both
+const data2 : (number | string)[] = [1, "2", 3]; // this can be a mix of numbers and strings
+
+
+let seatAllotment : "aisle" | "window" | "middle"; // this is a literal type which can only have one of the specified values
+seatAllotment = "aisle";    
+seatAllotment = "crew"; // error because crew is not one of the specified values
